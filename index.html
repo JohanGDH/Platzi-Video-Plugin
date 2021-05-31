@@ -1,10 +1,11 @@
+<!DOCTYPE html>
 <html lang="es">
   <head>
     <title>PlatziMediaPlayer</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <link rel="stylesheet" href="./assets/index.css" />
+    <link rel="stylesheet" href="./assets/index.css" />    
   </head>
 
   <body>
@@ -20,32 +21,6 @@
 
       <button>Play/Pause</button>
     </main>
-
-    <script>
-      const video = document.querySelector("video");
-      const button = document.querySelector("button");
-
-      class MediaPlayer {
-        constructor(config){
-          const { element } = config;
-          this.media = element;
-        }
-        play(){
-          this.media.play();
-        }
-        stop(){
-          this.media.pause();
-        }
-
-      }
-      const player = new MediaPlayer({element: video});
-      button.onclick = () => {
-        if (video.paused === false) {
-          player.stop();
-        } else if (video.paused === true) {
-          player.play();
-        }
-      }
-    </script>
+    <script type='module' src="./assets/index.js"></script>
   </body>
 </html>
