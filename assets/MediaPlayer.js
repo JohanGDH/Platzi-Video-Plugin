@@ -3,17 +3,25 @@ class MediaPlayer {
         const { element } = config;
         this.media = element;
         this.plugins = config.plugins || [];
+        this._InitPlugins();
 
 
     }
 
     _InitPlugins(){
         this.plugins.forEach(plugin => {
-            plugin.run(MediaPlayer)
+            plugin.run(this)
         });
     }
 
+    play(){
+        this.media.play();
+    }
     
+    stop(){
+        this.media.pause();
+    }
+
     togglePlay(){
         if (this.media.paused === false) {
             this.media.pause();
@@ -29,6 +37,14 @@ class MediaPlayer {
 
     unMute(){
         this.media.muted = false;
+    }
+
+    toggleMute(){
+        if(this.media.muted === false) {
+            this.media.muted = true;
+        } else if (this.media.muted === true) {
+            this.media.muted = false;
+        }
     }
 }
 
