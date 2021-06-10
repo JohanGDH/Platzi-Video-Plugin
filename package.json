@@ -4,7 +4,7 @@
   "description": "Proyecto del Curso Profesional de JS",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "live-server"
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/JohanGDH/Platzi-Video-Plugin/issues"
   },
-  "homepage": "https://github.com/JohanGDH/Platzi-Video-Plugin#readme"
+  "homepage": "https://github.com/JohanGDH/Platzi-Video-Plugin#readme",
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
 }
