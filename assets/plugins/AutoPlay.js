@@ -1,7 +1,11 @@
 class Autoplay {
 
     run(player)   {
-        player.mute()
+        if(!player.muted) {
+            player.muted = true;
+        } else if (player.muted = false) {
+            player.muted = false
+        }        
         player.play();
     }
 
