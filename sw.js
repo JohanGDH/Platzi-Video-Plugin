@@ -1,0 +1,48 @@
+const VERSION = 'v1';
+
+self.addEventListener('install', event => {
+    event.waitUntil(precache());    
+});
+
+self.addEventListener('fetch', event => {
+    const request = event.request;
+
+    if(request.method != 'GET') {
+        return;
+    } else {
+        event.respondWith(cachedResponse(request));
+        //Actualizar el cache
+        event.waitUntil(updateCache(request));
+    }    
+});
+
+async function precache() {
+    const cache = await caches.open(VERSION);
+    cache.addAll([
+        '/',
+        '/index.html',
+        '/assets/index.js',
+        '/assets/MediaPlayer.js',
+        '/assets/plugins/AutoPlay.js',
+        '/assets/plugins/AutoPause.js',
+        '/assets/index.css',
+        '/assets/BigBuckBunny.mp4',
+    ]);    
+};
+
+async function cachedResponse(request) {
+    const cache = await caches.open(VERSION);
+    const response = await cache.match(request);
+    return response || fetch(request);
+}
+
+async function updateCache(request) {
+    const cache = await caches.open(VERSION);
+    const response = await fetch(request);
+    if(response.status === 206) {
+        console.log('Respuesta parcial no se actualizará el cache')
+    } else {
+        cache.put(request, response.clone())
+    }
+    return cache
+}
