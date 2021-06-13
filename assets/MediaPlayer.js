@@ -9,7 +9,7 @@ class MediaPlayer {
     _InitPlugins(){
         const player = {
             play: () => this.play(),
-            pause: () => this.pause(),
+            pause: () => this.stop(),
             media: this.media,            
             get muted() {
                 return this.media.muted;
