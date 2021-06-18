@@ -4,7 +4,7 @@
   "description": "Proyecto del Curso Profesional de JS",
   "main": "index.js",
   "scripts": {
-    "start": "parcel index.html assets/**/index.html assets/ejercicios/**/**.html"
+    "start": "parcel index.html assets/**/index.html assets/ejercicios/**/**.html assets/ejercicios/**/**/**.html"
   },
   "repository": {
     "type": "git",
