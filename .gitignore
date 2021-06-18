@@ -2,3 +2,4 @@ node_modules/
 LICENSE
 .cache
 dist
+.parcel-cache

@@ -1,6 +1,6 @@
-import MediaPlayer from './MediaPlayer.js';
-import Autoplay from './plugins/AutoPlay.js';
-import AutoPause from './plugins/AutoPause.js';
+import MediaPlayer from './MediaPlayer';
+import Autoplay from './plugins/AutoPlay';
+import AutoPause from './plugins/AutoPause';
 
 const video = document.querySelector("video");
 const buttonPlay = document.getElementById("#playAndStop");
@@ -15,7 +15,7 @@ buttonPlay.onclick = () => player.togglePlay();
 buttonMute.onclick = () => player.toggleMute();
 
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/sw.js').catch(error => {
-        console.error(error);
-    });
+    navigator.serviceWorker.register('/sw.js').catch(error =>{
+        console.log(error)
+    })
 }
